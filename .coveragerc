@@ -2,7 +2,6 @@
 include =
     slack_invitation/*.py
 omit =
-    slack_invitation/__init__.py
     slack_invitation/compatibility.py
     slack_invitation/tests/compatibility.py
 exclude_lines =

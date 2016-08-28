@@ -1,12 +1,9 @@
 from django.conf import settings
 from django.core.exceptions import ImproperlyConfigured
 from django.contrib.auth.models import User
-from django.dispatch import receiver
-from django.db.models.signals import post_save
 from .slack import SlackInvitationClient, SlackInvitationException
 
 
-@receiver(post_save, sender=User)
 def invite_to_slack(sender, instance, created, update_fields={}, **kwargs):
     update_fields = kwargs.get('update_fields', {})
     is_active = update_fields.get('is_active', False)

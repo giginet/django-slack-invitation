@@ -1,10 +1,13 @@
 from django.test import TestCase, override_settings
 from django.contrib.auth.models import User
+from slack_invitation import register_invite_to_slack
 from .compatibility import Mock, patch
-from slack_invitation import signals
 
 
 class SlackInvitationSignalTest(TestCase):
+    def setUp(self):
+        register_invite_to_slack()
+
     @override_settings(DJANGO_SLACK_INVITATION_TEAM='teamname', DJANGO_SLACK_INVITATION_TOKEN='dummytoken')
     def test_user_is_activated(self):
         response = Mock()
@@ -31,4 +34,3 @@ class SlackInvitationSignalTest(TestCase):
             User.objects.create_user('John', 'django-slack-invitation@kawaz.org', 'password')
 
             post.assert_not_called()
-
