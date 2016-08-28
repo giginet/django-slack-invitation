@@ -35,6 +35,13 @@ Add ``slack_invitation`` into ``INSTALL_APPS`` in ``settings.py`` file
       'slack_invitation',
   )
 
+Add ``DJANGO_SLACK_INVITATION_TEAM`` and ``DJANGO_SLACK_INVITATION_TOKEN`` in ``settings.py`` file
+
+.. code:: python
+
+  DJANGO_SLACK_INVITATION_TEAM = 'your-slack-team-name'
+  DJANGO_SLACK_INVITATION_TOKEN = 'your-slack-token'
+
 Execute ``register_slack_invitation`` on ``models.py`` or ``urls.py``.
 
 
