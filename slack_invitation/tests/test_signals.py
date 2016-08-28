@@ -1,12 +1,12 @@
 from django.test import TestCase, override_settings
 from django.contrib.auth.models import User
-from slack_invitation import register_invite_to_slack
+from slack_invitation import register_slack_invitation
 from .compatibility import Mock, patch
 
 
 class SlackInvitationSignalTest(TestCase):
     def setUp(self):
-        register_invite_to_slack()
+        register_slack_invitation()
 
     @override_settings(DJANGO_SLACK_INVITATION_TEAM='teamname', DJANGO_SLACK_INVITATION_TOKEN='dummytoken')
     def test_user_is_activated(self):

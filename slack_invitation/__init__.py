@@ -1,4 +1,4 @@
-def register_invite_to_slack():
+def register_slack_invitation():
     from django.contrib.auth.models import User
     from .signals import invite_to_slack
     from django.db.models.signals import post_save
