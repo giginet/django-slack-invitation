@@ -21,6 +21,7 @@ class SlackInvitationSignalTest(TestCase):
                 'set_active': True,
             })
 
+    @override_settings(DJANGO_SLACK_INVITATION_TEAM=None, DJANGO_SLACK_INVITATION_TOKEN=None)
     def test_token_is_not_set(self):
         response = Mock()
         response.json.side_effect = lambda: {'ok': True}
