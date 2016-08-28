@@ -1,4 +1,4 @@
-import request
+import requests
 from .compatibility import urljoin
 
 
@@ -20,7 +20,7 @@ class SlackInvitationClient(object):
 
     def invite(self, email, active=True):
         endpoint = urljoin(self.base_url, self.ENDPOINT)
-        r = request.post(endpoint, data={
+        r = requests.post(endpoint, data={
             'email': email,
             'token': self.token,
             'set_active': active
